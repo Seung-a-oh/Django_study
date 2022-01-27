@@ -1,4 +1,4 @@
-"""mysite URL Configuration
+"""practice URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -19,5 +19,4 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('elections.urls')),
-    # 앱에 대한 실행 경로를 지정해줄 때 include 필요
 ]
