@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>지역구</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
-<body>
+{% extends "elections/layout.html" %}
+
+{% block title %}
+{{area}}
+{% endblock %}
+
+{% block content %}
 <div class="container">
 <h1>{{area}}</h1>
 <br>
@@ -30,9 +26,9 @@
             <td> {{candidate.party_num}} </td>
             <td>    
                 {% comment %} action에는 선택 결과가 전달 될 url {% endcomment %}
-                <form action = "/polls/{{poll.id}}" method="post">
+                <form action = "/polls/{{poll.id}}/" method="post">
                 {% csrf_token %}
-                    <button name="choice" value="{{candidiate.id}}">선택</button>
+                    <button name="choice" value="{{candidate.id}}">선택</button>
                 </form>
             </td>
         </tr>
@@ -43,4 +39,4 @@
 여론 조사가 없습니다.
 {% endif %}
 </div>
-</body>
+{% endblock %}
